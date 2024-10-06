@@ -40,7 +40,7 @@
         
     - name: Copy Backend Service file
       ansible.builtin.copy:
-        src: backend service
+        src: backend.service
         dest: /etc/systemd/system/backend.service
 
     - name: Install Mysql Client
@@ -55,7 +55,7 @@
         target: /app/schema/backend.sql
         login_user: root
         login_password: ExpenseApp@1
-        login_host:
+        login_host: 172.31.37.250
 
     - name: Start Backend Service
       ansible.builtin.systemd_service:
