@@ -9,66 +9,66 @@ pipelines:
         auto_update: true
         branch: main
     stages:
-      - DEV:
-          fetch_materials: true
-          environment_variables:
-            env: dev
-          approval:
-            type: manual
-          jobs:
-            ansible-playbook:
-              tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash #bash ansible.sh backend
-                    run_if: passed
+    - DEV:
+        fetch_materials: true
+        environment_variables:
+          env: dev
+        approval:
+          type: manual
+        jobs:
+          ansible-playbook:
+            tasks:
+            - exec:
+                arguments:
+                  - ansible.sh
+                  - backend
+                command: bash #bash ansible.sh backend
+                run_if: passed
 
-      - QA:
-          fetch_materials: true
-          environment_variables:
-            env: qa
-          approval:
+    - QA:
+        fetch_materials: true
+        environment_variables:
+          env: qa
+        approval:
             type: manual
-          jobs:
-            ansible-playbook:
-              tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash #bash ansible.sh backend
-                    run_if: passed
+        jobs:
+          ansible-playbook:
+            tasks:
+            - exec:
+                arguments:
+                  - ansible.sh
+                  - backend
+                command: bash #bash ansible.sh backend
+                run_if: passed
 
-      - STAGE:
-          fetch_materials: true
-          environment_variables:
-            env: stage
-          approval:
-            type: manual
-          jobs:
-            ansible-playbook:
-              tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash #bash ansible.sh backend
-                    run_if: passed
+    - STAGE:
+        fetch_materials: true
+        environment_variables:
+          env: stage
+        approval:
+          type: manual
+        jobs:
+          ansible-playbook:
+            tasks:
+              - exec:
+                  arguments:
+                    - ansible.sh
+                    - backend
+                  command: bash #bash ansible.sh backend
+                  run_if: passed
 
-      - PROD:
-          fetch_materials: true
-          environment_variables:
-            env: prod
-          approval:
-            type: manual
-          jobs:
-            ansible-playbook:
-              tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash #bash ansible.sh backend
-                    run_if: passed
+    - PROD:
+        fetch_materials: true
+        environment_variables:
+          env: prod
+        approval:
+          type: manual
+        jobs:
+          ansible-playbook:
+            tasks:
+              - exec:
+                  arguments:
+                    - ansible.sh
+                    - backend
+                  command: bash #bash ansible.sh backend
+                  run_if: passed
