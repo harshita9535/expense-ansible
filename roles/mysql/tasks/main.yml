@@ -20,7 +20,7 @@
   community.mysql.mysql_info:
     login_user: root
     login_password: ExpenseApp@1
-    login_host: 172.31.17.123
+    login_host: 172.31.44.102
     filter: version
   register: mysql_connection_output
 
